@@ -29,12 +29,12 @@ def main():
 
         msg.add_alternative(html, subtype="html")
         
-        with open('./images/ujep_logo.png', 'rb') as file:
-            img_data = file.read()
+        # with open('./images/ujep_logo.png', 'rb') as file:
+        #     img_data = file.read()
 
-        img = MIMEImage(img_data)
-        img.add_header('Content-ID', '<logo_cid>')
-        msg.attach(img)
+        # img = MIMEImage(img_data)
+        # img.add_header('Content-ID', '<logo_cid>')
+        # msg.attach(img)
 
         with smtplib.SMTP_SSL(settings.smtp.server, settings.smtp.port) as smtp:
             smtp.login(settings.smtp.user, settings.smtp.password.get_secret_value())
