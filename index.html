@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Python mail</title>
+  <style>
+    /* CSS Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    .header {
+      text-align: left;
+      padding-bottom: 20px;
+    }
+    h1 {
+      color: #333333;
+    }
+    h2 {
+      color: #333333;
+      text-align: left;
+    }
+    table {
+      text-align: left;
+    }
+    p {
+      color: #666666;
+    }
+    .footer {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #cccccc;
+      text-align: center;
+      color: #999999;
+    }
+
+    .logo {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="cid:logo_cid" alt="Logo" class="logo" />
+    </div>
+    <h1>Dear {{ to_name }},</h1>
+    <p></p>
+    <p>{{ subject_info }}</p>
+    <p>{{ body }}</p>
+    <div class="footer">
+      <h2>Contact us:</h2>
+      <table>
+        <tr>
+          <td>Email:</td>
+          <td>{{ email }}</td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>{{ phone }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

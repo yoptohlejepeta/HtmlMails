@@ -28,7 +28,7 @@ class SMTPSettings(BaseSettings):
 
 class Settings(BaseSettings):
     smtp: SMTPSettings
-    
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
