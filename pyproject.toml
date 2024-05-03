@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "htmlmails"
+version = "0.1.0"
+description = "Tutorial for sending HTML emails"
+authors = ["yoptohlejepeta <peta.kotlan@seznam.cz>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic-settings = "^2.2.1"
+email-validator = "^2.1.1"
+loguru = "^0.7.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
