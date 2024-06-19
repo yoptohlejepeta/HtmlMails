@@ -1,24 +1,35 @@
+"""Main module to send email with HTML template and logo image."""
+
 import smtplib
 from email.message import EmailMessage
-from loguru import logger
+from pathlib import Path
+
 from jinja2 import Environment, FileSystemLoader
+from loguru import logger
 
 from settings import settings
 
 
-def main():
+def main() -> None:
+    """Send email with HTML template and logo image.
+
+    Raises
+    ------
+        e: Exception raised when sending email fails.
+
+    """
     try:
         msg = EmailMessage()
         msg["Subject"] = "Hello, this is COOL email!"
         msg["From"] = settings.smtp.user
         msg["To"] = settings.smtp.user
 
-        env = Environment(loader=FileSystemLoader("."))
+        env = Environment(loader=FileSystemLoader("."), autoescape=True)
         template = env.get_template("index.html")
-        
-        with open('./images/logo2.svg', 'r') as file:
+
+        with Path("./images/logo1.svg").open("rb") as file:
             logo = file.read()
-            
+
         variables = {
             "to_name": "John Doe",
             "subject_info": "This is a test email",
@@ -37,14 +48,14 @@ def main():
             smtp.send_message(msg)
     except Exception as e:
         logger.exception(e)
-        raise e
+        raise
 
 
 if __name__ == "__main__":
     logger.info("Sending email...")
     try:
         main()
-    except Exception as e:
+    except Exception:
         logger.error("Failed to send email")
     else:
         logger.info("Email sent successfully")

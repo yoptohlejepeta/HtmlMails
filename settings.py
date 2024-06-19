@@ -1,7 +1,8 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import SecretStr, field_validator, Field
-from typing import Any, Annotated
+from typing import Annotated, Any
+
 from email_validator import validate_email
+from pydantic import Field, SecretStr, field_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 Port = Annotated[int, Field(ge=0, le=65535)]
 
